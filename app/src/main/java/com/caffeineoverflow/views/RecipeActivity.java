@@ -50,8 +50,7 @@ public class RecipeActivity extends AppCompatActivity {
         resultListAdapter = new ResultListAdapter(results, new OnItemClickListener() {
             @Override
             public void onItemClick(Result result) {
-                System.out.println(result.getTitle());
-                Toast.makeText(getApplicationContext(), result.getTitle(), Toast.LENGTH_LONG).show();
+                System.out.println("MIA      OnItemClick: " + result.getTitle());
                 Intent intent = new Intent(getApplicationContext(), DetailedRecipeActivity.class);
                 intent.putExtra("recipeId", result.getId());
                 startActivity(intent);
@@ -59,6 +58,7 @@ public class RecipeActivity extends AppCompatActivity {
         });
         recyclerView.setAdapter(resultListAdapter);
 
+        // TODO FIXME. Add search box
         // Call this method when user searches sth
         getRecipes("pasta");
     }
