@@ -45,8 +45,8 @@ public class HomeActivity extends AppCompatActivity{
 
     public void onClickRecepieBtn(View view){
         //create an explicit intent to call Receipe Activity
-//        Intent intent = new Intent(this,ResultActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, RecipeActivity.class);
+        startActivity(intent);
 
     }
 
