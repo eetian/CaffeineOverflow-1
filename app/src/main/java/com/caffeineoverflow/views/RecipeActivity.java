@@ -1,6 +1,7 @@
 package com.caffeineoverflow.views;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
@@ -32,7 +33,6 @@ public class RecipeActivity extends AppCompatActivity {
     static final String TAG = RecipeActivity.class.getSimpleName();
     static final String BASE_URL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/";
 
-    final static String API_KEY = "SOME_RANDOM_KEY";
 
     private RecyclerView recyclerView;
     List<Result> results = new ArrayList<>();
@@ -52,6 +52,9 @@ public class RecipeActivity extends AppCompatActivity {
             public void onItemClick(Result result) {
                 System.out.println(result.getTitle());
                 Toast.makeText(getApplicationContext(), result.getTitle(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getApplicationContext(), DetailedRecipeActivity.class);
+                intent.putExtra("recipeId", result.getId());
+                startActivity(intent);
             }
         });
         recyclerView.setAdapter(resultListAdapter);

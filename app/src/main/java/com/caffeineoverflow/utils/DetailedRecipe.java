@@ -2,18 +2,20 @@ package com.caffeineoverflow.utils;
 
 import com.google.gson.annotations.SerializedName;
 
-public class DetailRecipe {
+import java.util.ArrayList;
+
+public class DetailedRecipe {
 
     @SerializedName("id")
     private String id;
     @SerializedName("title")
     private String title;
     @SerializedName("extendedIngredients")
-    private String[] extendedIngredients;
+    private ArrayList<Ingredient> extendedIngredients;
     @SerializedName("instructions")
     private String instructions;
 
-    public DetailRecipe(String id, String title, String[] extendedIngredients, String instructions) {
+    public DetailedRecipe(String id, String title, ArrayList<Ingredient> extendedIngredients, String instructions) {
         this.id = id;
         this.title = title;
         this.extendedIngredients = extendedIngredients;
@@ -28,7 +30,7 @@ public class DetailRecipe {
         return title;
     }
 
-    public String[] getExtendedIngredients() {
+    public ArrayList<Ingredient> getExtendedIngredients() {
         return extendedIngredients;
     }
 
