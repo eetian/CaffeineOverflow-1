@@ -11,7 +11,7 @@
         android:id="@+id/tvId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="tvReleaseDate" />
+        android:text="tvId" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -24,12 +24,12 @@
         android:id="@+id/tvMinutes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="tvVote" />
+        android:text="tvMinutes" />
 
     <TextView
         android:id="@+id/tvServings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="tvOverview" />
+        android:text="tvServings" />
 
 </LinearLayout>

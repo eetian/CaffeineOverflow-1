@@ -4,81 +4,85 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.caffeineoverflow.R;
+import com.caffeineoverflow.utils.OnItemClickListener;
+import com.caffeineoverflow.utils.RecipeApiService;
 import com.caffeineoverflow.utils.Result;
 import com.caffeineoverflow.utils.ResultListAdapter;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-import com.squareup.okhttp.Call;
-import com.squareup.okhttp.Callback;
-import com.squareup.okhttp.OkHttpClient;
-import com.squareup.okhttp.Request;
-import com.squareup.okhttp.Response;
-
+import com.caffeineoverflow.utils.TopResults;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class RecipeActivity extends AppCompatActivity {
 
     static final String TAG = RecipeActivity.class.getSimpleName();
-    static final String BASE_URL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/";
+    static final String BASE_URL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/";
 
     final static String API_KEY = "360db5380533df750100fadb2ae9c770";
 
     private RecyclerView recyclerView;
     List<Result> results = new ArrayList<>();
     ResultListAdapter resultListAdapter;
-    OkHttpClient client = new OkHttpClient();;
+    Retrofit retrofit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
-        getArecipe(1076217);
         recyclerView = findViewById(R.id.rvRecipeList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        resultListAdapter = new ResultListAdapter(results);
+
+        resultListAdapter = new ResultListAdapter(results, new OnItemClickListener() {
+            @Override
+            public void onItemClick(Result result) {
+                System.out.println(result.getTitle());
+                Toast.makeText(getApplicationContext(), result.getTitle(), Toast.LENGTH_LONG).show();
+            }
+        });
         recyclerView.setAdapter(resultListAdapter);
 
+        // Call this method when user searches sth
+        getRecipes("pasta");
     }
 
-    public static void printJson(String uglyJson) {
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        JsonParser jp = new JsonParser();
-        JsonElement je = jp.parse(uglyJson);
-        String prettyJsonString = gson.toJson(je);
-        Log.d("DEBUG", prettyJsonString);
-        Log.d("DEBUG", uglyJson);
-    }
+    private void getRecipes(String drinkName) {
+        if (retrofit == null) {
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
+        RecipeApiService recipeApiService = retrofit.create(RecipeApiService.class);
+        Call<TopResults> call = recipeApiService.getTopResults(drinkName);
+        System.out.println("MIA   " + call.request().toString());
+        System.out.println("Here");
 
-    private void getArecipe(int recipeId) {
-
-        Request request = new Request.Builder()
-                .url("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search?query=mocha")
-                .get()
-                .addHeader("x-rapidapi-host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com")
-                .addHeader("x-rapidapi-key", "f5f17108cfmsh651e47d752cbfd2p13124cjsn9ee6f39b357a")
-                .build();
-
-        client.newCall(request).enqueue(new Callback() {
+        call.enqueue(new Callback<TopResults>() {
             @Override
-            public void onFailure(Request request, IOException e) {
-                e.printStackTrace();
+            public void onResponse(Call<TopResults> call, Response<TopResults> response) {
+                results.clear();
+                results.addAll(response.body().getResults());
+                resultListAdapter.notifyDataSetChanged();
             }
 
             @Override
-            public void onResponse(Response response) throws IOException {
-                System.out.println(response.body().string().toString());
+            public void onFailure(Call<TopResults> call, Throwable throwable) {
+                Log.e(TAG, throwable.toString());
             }
         });
     }
