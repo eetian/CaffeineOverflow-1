@@ -11,7 +11,7 @@ public interface RecipeApiService {
     @GET("recipes/search")
     @Headers({
             "x-rapidapi-host: spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "x-rapidapi-key: f5f17108cfmsh651e47d752cbfd2p13124cjsn9ee6f39b357a"
+            "x-rapidapi-key: SOME_RANDOM_KEY"
     })
     Call<TopResults> getTopResults(@Query("query") String foodName);
 }

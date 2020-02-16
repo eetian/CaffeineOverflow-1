@@ -32,7 +32,7 @@ public class RecipeActivity extends AppCompatActivity {
     static final String TAG = RecipeActivity.class.getSimpleName();
     static final String BASE_URL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/";
 
-    final static String API_KEY = "360db5380533df750100fadb2ae9c770";
+    final static String API_KEY = "SOME_RANDOM_KEY";
 
     private RecyclerView recyclerView;
     List<Result> results = new ArrayList<>();
