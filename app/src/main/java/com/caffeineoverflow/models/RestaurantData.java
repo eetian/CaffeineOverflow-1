@@ -23,6 +23,9 @@ public class RestaurantData {
     @SerializedName("phone_numbers")
     private String phoneNumbers;
 
+    @SerializedName("timings")
+    private String timings;
+
     public RestaurantData(String name, String averageCostForTwo, String currency, UserRating userRating, Location location, String phoneNumbers){
         this.name = name;
         this.averageCostForTwo = averageCostForTwo;
@@ -56,5 +59,7 @@ public class RestaurantData {
     public String getPhoneNumbers() {
         return phoneNumbers;
     }
+
+    public String getTimings(){return timings;};
 
 }
