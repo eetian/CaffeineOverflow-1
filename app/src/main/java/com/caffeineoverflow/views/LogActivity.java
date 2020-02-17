@@ -62,6 +62,8 @@ public class LogActivity extends AppCompatActivity  {
                 Log.d(TAG, "Calendar event: " + calendarEvent.getEventName());
                 // TODO FIXME
                 // Show a dialog which will either directs us to the recipe search or amazon
+                chooseActionDialog(calendarEvent);
+
             }
         });
         recyclerView.setAdapter(calendarEventAdapter);
@@ -147,6 +149,29 @@ public class LogActivity extends AppCompatActivity  {
                 }
             })
             .show();
+    }
+
+    private void chooseActionDialog(CalendarEvent calendarEvent){
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        View eventDialogView = inflater.inflate(R.layout.dialog_action_for_event, null);
+        builder.setView(eventDialogView)
+                .setPositiveButton("get recipes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent intent = new Intent(getApplicationContext(), RecipeActivity.class);
+                        intent.putExtra("eventName", calendarEvent.getEventName());
+                        startActivity(intent);
+                    }
+                })
+                .setNegativeButton("go to amazon", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                })
+                .show();
+
     }
 
 

@@ -5,6 +5,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,7 +36,8 @@ public class RecipeActivity extends AppCompatActivity {
     static final String TAG = RecipeActivity.class.getSimpleName();
     static final String BASE_URL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/";
 
-
+    Button btn_drinksearch;
+    EditText edt_drinkquery;
     private RecyclerView recyclerView;
     List<Result> results = new ArrayList<>();
     ResultListAdapter resultListAdapter;
@@ -47,6 +51,17 @@ public class RecipeActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        Intent intent = getIntent();
+        String eventName = intent.getStringExtra("eventName");
+        edt_drinkquery = findViewById(R.id.edt_drinkquery);
+
+        if ( eventName.length()!=0){
+            edt_drinkquery.setText(eventName);
+            getRecipes(eventName);
+        }
+
+
+
         resultListAdapter = new ResultListAdapter(results, new OnItemClickListener() {
             @Override
             public void onItemClick(Result result) {
@@ -58,9 +73,22 @@ public class RecipeActivity extends AppCompatActivity {
         });
         recyclerView.setAdapter(resultListAdapter);
 
-        // TODO FIXME. Add search box
-        // Call this method when user searches sth
-        getRecipes("pasta");
+        edt_drinkquery = findViewById(R.id.edt_drinkquery);
+
+        // Add event listener for the add event button
+        btn_drinksearch = (Button) findViewById(R.id.btn_drinksearch);
+        btn_drinksearch.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String drinkQueryStr = edt_drinkquery.getText().toString();
+                System.out.println("MIA         drinkQueryStr: "+drinkQueryStr);
+                getRecipes(drinkQueryStr);
+            }
+        });
+
+//        // TODO FIXME. Add search box ---- FINISHED
+//        // Call this method when user searches sth
+//        getRecipes("pasta");
     }
 
     private void getRecipes(String drinkName) {

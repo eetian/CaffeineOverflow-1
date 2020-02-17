@@ -11,7 +11,7 @@ public interface DetailedRecipeApiService {
     @GET("recipes/{id}/information")
     @Headers({
             "x-rapidapi-host: spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-            "x-rapidapi-key: RANDOM_API"
+            "x-rapidapi-key: MY API KEY"
     })
     Call<DetailedRecipe> getDetailedRecipe(@Path("id") String id);
 }

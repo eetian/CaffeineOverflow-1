@@ -58,7 +58,7 @@ public class DetailedRecipeActivity extends AppCompatActivity {
             @Override
             public void onIngredientClick(Ingredient ingredient) {
                 System.out.println(ingredient.getName());
-                Toast.makeText(getApplicationContext(), ingredient.getName(), Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), ingredient.getName(), Toast.LENGTH_LONG).show();
             }
         });
         recyclerView.setAdapter(ingridentListAdapter);
