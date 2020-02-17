@@ -55,7 +55,7 @@ public class RecipeActivity extends AppCompatActivity {
         String eventName = intent.getStringExtra("eventName");
         edt_drinkquery = findViewById(R.id.edt_drinkquery);
 
-        if ( eventName.length()!=0){
+        if ( eventName != null && eventName.length()!=0){
             edt_drinkquery.setText(eventName);
             getRecipes(eventName);
         }
