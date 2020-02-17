@@ -15,6 +15,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
@@ -45,8 +46,8 @@ public class HomeActivity extends AppCompatActivity{
 
     public void onClickRecepieBtn(View view){
         //create an explicit intent to call Receipe Activity
-//        Intent intent = new Intent(this,ResultActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, RecipeActivity.class);
+        startActivity(intent);
 
     }
 
@@ -58,8 +59,8 @@ public class HomeActivity extends AppCompatActivity{
 
     public void onClickLogBtn(View view){
         //create an explicit intent to call Log Activity
-//        Intent intent = new Intent(this,ResultActivity.class);
-//        startActivity(intent);
+        Intent intent = new Intent(this, LogActivity.class);
+        startActivity(intent);
     }
 
     public void onClickCalculateBtn(View view){
