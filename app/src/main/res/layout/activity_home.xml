@@ -4,32 +4,51 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg2"
     android:orientation="vertical"
     tools:context="com.caffeineoverflow.views.HomeActivity">
 
-    <Button
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Recipe"
-        android:onClick="onClickRecepieBtn"/>
+        android:orientation="horizontal">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Search Nearby"
-        android:onClick="onClickSearchNearbyBtn"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="550dp"
+            android:onClick="onClickRecepieBtn"
+            android:background="@android:color/transparent"
+            android:text="  " />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log"
-        android:onClick="onClickLogBtn"/>
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Calculate"
-        android:onClick="onClickCalculateBtn"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="550dp"
+            android:text="  "
+            android:background="@android:color/transparent"
+            android:onClick="onClickLogBtn"/>
 
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="550dp"
+            android:background="@android:color/transparent"
+            android:onClick="onClickSearchNearbyBtn"
+            android:text="  " />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="550dp"
+            android:background="@android:color/transparent"
+            android:onClick="onClickCalculateBtn"
+            android:text="  " />
+
+    </LinearLayout>
 </LinearLayout>
