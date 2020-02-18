@@ -3,13 +3,13 @@ package com.caffeineoverflow.utils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.caffeineoverflow.R;
+import com.caffeineoverflow.models.Ingredient;
 
 import java.util.List;
 

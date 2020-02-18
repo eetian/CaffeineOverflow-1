@@ -1,4 +1,4 @@
-package com.caffeineoverflow.utils;
+package com.caffeineoverflow.models;
 
 public class CalendarEvent {
     public String getEventName() {

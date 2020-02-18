@@ -2,27 +2,19 @@ package com.caffeineoverflow.views;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.caffeineoverflow.R;
-import com.caffeineoverflow.utils.DetailedRecipe;
-import com.caffeineoverflow.utils.DetailedRecipeApiService;
-import com.caffeineoverflow.utils.Ingredient;
+import com.caffeineoverflow.models.DetailedRecipe;
+import com.caffeineoverflow.repositories.remote.DetailedRecipeApiService;
+import com.caffeineoverflow.models.Ingredient;
 import com.caffeineoverflow.utils.IngridentListAdapter;
 import com.caffeineoverflow.utils.OnIngredientClickListener;
-import com.caffeineoverflow.utils.OnItemClickListener;
-import com.caffeineoverflow.utils.RecipeApiService;
-import com.caffeineoverflow.utils.Result;
-import com.caffeineoverflow.utils.ResultListAdapter;
-import com.caffeineoverflow.utils.TopResults;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import retrofit2.Call;

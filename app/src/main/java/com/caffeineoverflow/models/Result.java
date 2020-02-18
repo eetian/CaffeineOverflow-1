@@ -1,4 +1,4 @@
-package com.caffeineoverflow.utils;
+package com.caffeineoverflow.models;
 
 import com.google.gson.annotations.SerializedName;
 
