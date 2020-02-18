@@ -11,24 +11,24 @@
         android:id="@+id/ingredientId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ingredientId" />
+         />
 
     <TextView
         android:id="@+id/ingredientName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ingredientName" />
+         />
 
     <TextView
         android:id="@+id/ingredientAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ingredientAmount" />
+         />
 
     <TextView
         android:id="@+id/ingredientUnit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ingredientUnit" />
+        />
 
 </LinearLayout>

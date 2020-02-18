@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel;
 import com.caffeineoverflow.models.City;
 import com.caffeineoverflow.models.Restaurant;
 import com.caffeineoverflow.models.RestaurantDetails;
-import com.caffeineoverflow.repositories.remote.services.ApiService;
+import com.caffeineoverflow.repositories.service.ApiService;
 
 import java.util.List;
 

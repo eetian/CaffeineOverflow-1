@@ -1,4 +1,4 @@
-package com.caffeineoverflow.repositories.remote.services;
+package com.caffeineoverflow.repositories.service;
 
 import com.caffeineoverflow.models.CityDetails;
 import com.caffeineoverflow.models.RestaurantDetails;

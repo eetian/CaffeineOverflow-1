@@ -8,13 +8,12 @@
         android:id="@+id/recipeId"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="recipeId" />
+         />
 
     <TextView
         android:id="@+id/recipeTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="recipeTitle"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         />
 
@@ -22,7 +21,7 @@
         android:id="@+id/recipeInstruction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="recipeInstruction" />
+         />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/ingridentList"
