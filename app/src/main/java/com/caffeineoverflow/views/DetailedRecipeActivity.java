@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.caffeineoverflow.R;
 import com.caffeineoverflow.models.DetailedRecipe;
-import com.caffeineoverflow.repositories.remote.DetailedRecipeApiService;
+import com.caffeineoverflow.repositories.remote.services.DetailedRecipeApiService;
 import com.caffeineoverflow.models.Ingredient;
 import com.caffeineoverflow.utils.IngridentListAdapter;
 import com.caffeineoverflow.utils.OnIngredientClickListener;
