@@ -1,4 +1,4 @@
-package com.caffeineoverflow.repositories.remote;
+package com.caffeineoverflow.repositories.remote.services;
 
 import com.caffeineoverflow.models.TopResults;
 

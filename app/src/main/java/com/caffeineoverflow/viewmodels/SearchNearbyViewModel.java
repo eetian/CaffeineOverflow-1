@@ -5,11 +5,9 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.caffeineoverflow.models.City;
-import com.caffeineoverflow.models.CityDetails;
 import com.caffeineoverflow.models.Restaurant;
-import com.caffeineoverflow.models.RestaurantData;
 import com.caffeineoverflow.models.RestaurantDetails;
-import com.caffeineoverflow.repositories.remote.ApiService;
+import com.caffeineoverflow.repositories.remote.services.ApiService;
 
 import java.util.List;
 
