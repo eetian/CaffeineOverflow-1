@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.caffeineoverflow.R;
 import com.caffeineoverflow.utils.OnItemClickListener;
-import com.caffeineoverflow.repositories.remote.services.RecipeApiService;
+import com.caffeineoverflow.repositories.service.RecipeApiService;
 import com.caffeineoverflow.models.Result;
 import com.caffeineoverflow.utils.ResultListAdapter;
 import com.caffeineoverflow.models.TopResults;
