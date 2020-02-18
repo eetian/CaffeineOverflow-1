@@ -1,5 +1,6 @@
-package com.caffeineoverflow.utils;
+package com.caffeineoverflow.models;
 
+import com.caffeineoverflow.models.Result;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;

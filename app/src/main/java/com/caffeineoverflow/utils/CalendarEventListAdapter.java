@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.caffeineoverflow.R;
+import com.caffeineoverflow.models.CalendarEvent;
 
 import java.util.List;
 

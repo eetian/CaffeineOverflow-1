@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,14 +16,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.caffeineoverflow.R;
-import com.caffeineoverflow.utils.CalendarEvent;
+import com.caffeineoverflow.models.CalendarEvent;
 import com.caffeineoverflow.utils.CalendarEventListAdapter;
 import com.caffeineoverflow.utils.OnCalendarEventClickListener;
-import com.caffeineoverflow.utils.OnItemClickListener;
-import com.caffeineoverflow.utils.Result;
-import com.caffeineoverflow.utils.ResultListAdapter;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
-import com.github.sundeepk.compactcalendarview.CompactCalendarView.CompactCalendarAnimationListener;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 
 import java.util.ArrayList;
