@@ -9,9 +9,12 @@ import com.caffeineoverflow.viewmodels.SearchNearbyViewModel;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -21,6 +24,7 @@ public class SearchNearbyActivity extends AppCompatActivity {
     private double longitude = 0.0;
     private City city;
     private List<Restaurant> restaurants;
+    private RecyclerView recyclerView;
 
 
     @Override
@@ -36,13 +40,17 @@ public class SearchNearbyActivity extends AppCompatActivity {
             model.getRestaurantDetails(latitude,longitude).observe(this, restaurantList -> {
                 if (restaurantList != null) {
                     restaurants = restaurantList;
+                    recyclerView = findViewById(R.id.rvRestaurants);
+                    recyclerView.setHasFixedSize(true);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+                    recyclerView.setAdapter(new SearchNearByAdapter(restaurants));
                 }
             });
-
         }
         else{
-            TextView textView = findViewById(R.id.nearbytext);
-            textView.setText("Need location permissions to proceed.");
+            Toast.makeText(getApplicationContext(),"Need location permissions to proceed.",Toast.LENGTH_SHORT);
+            //TextView textView = findViewById(R.id.nearbytext);
+            //textView.setText("Need location permissions to proceed.");
         }
 
     }
