@@ -7,28 +7,32 @@
     android:orientation="vertical"
     android:padding="10dp" >
 
-    <TextView
-        android:id="@+id/ingredientId"
+    <ImageView
+        android:id="@+id/ivIngredient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-         />
+        tools:srcCompat="@tools:sample/avatars" />
+
 
     <TextView
         android:id="@+id/ingredientName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text = "name"
          />
 
     <TextView
         android:id="@+id/ingredientAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-         />
+        android:text = "amount"
+        />
 
     <TextView
         android:id="@+id/ingredientUnit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text = "unit"
         />
 
 </LinearLayout>

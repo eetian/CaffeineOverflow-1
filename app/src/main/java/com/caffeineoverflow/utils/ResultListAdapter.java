@@ -3,6 +3,7 @@ package com.caffeineoverflow.utils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.caffeineoverflow.R;
 import com.caffeineoverflow.models.Result;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -25,15 +27,17 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvId;
+//        TextView tvId;
         TextView tvTitle;
+        ImageView ivRecipe;
         TextView tvMinutes;
         TextView tvServings;
 
         ViewHolder(View itemView) {
             super(itemView);
             tvTitle = itemView.findViewById(R.id.tvTitle);
-            tvId = itemView.findViewById(R.id.tvId);
+            ivRecipe = itemView.findViewById(R.id.ivRecipe);
+//            tvId = itemView.findViewById(R.id.tvId);
             tvMinutes = itemView.findViewById(R.id.tvMinutes);
             tvServings = itemView.findViewById(R.id.tvServings);
         }
@@ -60,7 +64,8 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Result result = results.get(position);
         holder.tvTitle.setText(result.getTitle());
-        holder.tvId.setText(result.getId());
+        Picasso.get().load("https://spoonacular.com/recipeImages/" + result.getId() +"-556x370.jpg").into(holder.ivRecipe);
+//        holder.tvId.setText(result.getId());
         holder.tvMinutes.setText(String.valueOf(result.getReadyInMinutes()));
         holder.tvServings.setText(String.valueOf(result.getServings()));
         holder.bind(results.get(position), listener);

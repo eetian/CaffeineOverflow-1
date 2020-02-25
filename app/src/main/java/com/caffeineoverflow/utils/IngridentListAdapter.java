@@ -3,6 +3,7 @@ package com.caffeineoverflow.utils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.caffeineoverflow.R;
 import com.caffeineoverflow.models.Ingredient;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -25,15 +27,17 @@ public class IngridentListAdapter extends RecyclerView.Adapter<IngridentListAdap
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView ingredientId;
+        ImageView ivIngredient;
+//        TextView ingredientId;
         TextView ingredientName;
         TextView ingredientAmount;
         TextView ingredientUnit;
 
         ViewHolder(View itemView) {
             super(itemView);
+            ivIngredient = itemView.findViewById(R.id.ivIngredient);
             ingredientName = itemView.findViewById(R.id.ingredientName);
-            ingredientId = itemView.findViewById(R.id.ingredientId);
+//            ingredientId = itemView.findViewById(R.id.ingredientId);
             ingredientAmount = itemView.findViewById(R.id.ingredientAmount);
             ingredientUnit = itemView.findViewById(R.id.ingredientUnit);
         }
@@ -59,7 +63,8 @@ public class IngridentListAdapter extends RecyclerView.Adapter<IngridentListAdap
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Ingredient ingredient = ingredients.get(position);
-        holder.ingredientId.setText(ingredient.getId());
+        Picasso.get().load("https://spoonacular.com/cdn/ingredients_100x100/"+ingredient.getImage()).into(holder.ivIngredient);
+//        holder.ingredientId.setText(ingredient.getId());
         holder.ingredientName.setText(ingredient.getName());
         holder.ingredientAmount.setText(String.valueOf(ingredient.getAmount()));
         holder.ingredientUnit.setText(String.valueOf(ingredient.getUnit()));
