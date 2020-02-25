@@ -3,6 +3,7 @@ package com.caffeineoverflow.views;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,10 +23,12 @@ import com.caffeineoverflow.utils.OnCalendarEventClickListener;
 import com.github.sundeepk.compactcalendarview.CompactCalendarView;
 import com.github.sundeepk.compactcalendarview.domain.Event;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class LogActivity extends AppCompatActivity  {
 
@@ -34,6 +37,8 @@ public class LogActivity extends AppCompatActivity  {
     Button btnAddEvent;
 
     Date currDateClicked = new Date();
+    private SimpleDateFormat dateFormatForMonth = new SimpleDateFormat("MMM yyyy", Locale.getDefault());
+
 
     private RecyclerView recyclerView;
     List<CalendarEvent> calendarEvents = new ArrayList<>();
@@ -43,7 +48,7 @@ public class LogActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log);
-
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#ffe95451")));
         // Generate calendar UI
         generateCalendar();
 
@@ -100,6 +105,7 @@ public class LogActivity extends AppCompatActivity  {
 
     private void generateCalendar() {
         CompactCalendarView compactCalendarView = (CompactCalendarView) findViewById(R.id.calendarView);
+        getSupportActionBar().setTitle(dateFormatForMonth.format(compactCalendarView.getFirstDayOfCurrentMonth()));
         compactCalendarView.setFirstDayOfWeek(Calendar.MONDAY);
         compactCalendarView.setListener(new CompactCalendarView.CompactCalendarViewListener() {
             @Override
@@ -114,6 +120,8 @@ public class LogActivity extends AppCompatActivity  {
             @Override
             public void onMonthScroll(Date firstDayOfNewMonth) {
                 Log.d(TAG, "Month was scrolled to: " + firstDayOfNewMonth);
+                System.out.println("MIA       firstDayOfNewMonth : " + firstDayOfNewMonth);
+                getSupportActionBar().setTitle(dateFormatForMonth.format(compactCalendarView.getFirstDayOfCurrentMonth()));
             }
         });
     }
