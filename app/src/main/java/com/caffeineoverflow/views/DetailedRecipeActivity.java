@@ -41,6 +41,7 @@ public class DetailedRecipeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_detail);
+        getSupportActionBar().setTitle("Recipe Detail");
         recyclerView = findViewById(R.id.ingridentList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
