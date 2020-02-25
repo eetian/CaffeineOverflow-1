@@ -64,10 +64,10 @@ public class ResultListAdapter extends RecyclerView.Adapter<ResultListAdapter.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Result result = results.get(position);
         holder.tvTitle.setText(result.getTitle());
-        Picasso.get().load("https://spoonacular.com/recipeImages/" + result.getId() +"-556x370.jpg").into(holder.ivRecipe);
+        Picasso.get().load("https://spoonacular.com/recipeImages/" + result.getId() +"-480x360.jpg").into(holder.ivRecipe);
 //        holder.tvId.setText(result.getId());
-        holder.tvMinutes.setText(String.valueOf(result.getReadyInMinutes()));
-        holder.tvServings.setText(String.valueOf(result.getServings()));
+        holder.tvMinutes.setText("Minutes to prepare: "+String.valueOf(result.getReadyInMinutes()));
+        holder.tvServings.setText("Serving size: "+String.valueOf(result.getServings()));
         holder.bind(results.get(position), listener);
     }
 
