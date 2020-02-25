@@ -35,6 +35,10 @@ public class Ingredient {
         this.unit = unit;
     }
 
+    public String getImage() {
+        return image;
+    }
+
     @SerializedName("id")
     private String id;
     @SerializedName("name")
@@ -43,6 +47,8 @@ public class Ingredient {
     private String amount;
     @SerializedName("unit")
     private String unit;
+    @SerializedName("image")
+    private String image;
 
 
 }

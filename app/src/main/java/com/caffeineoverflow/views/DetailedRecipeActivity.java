@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -53,6 +54,7 @@ public class DetailedRecipeActivity extends AppCompatActivity {
 //                Toast.makeText(getApplicationContext(), ingredient.getName(), Toast.LENGTH_LONG).show();
             }
         });
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(ingridentListAdapter);
 
         // Call this method when user searches sth
@@ -79,8 +81,8 @@ public class DetailedRecipeActivity extends AppCompatActivity {
 
                 TextView recipeNameTv = (TextView)findViewById(R.id.recipeTitle);
                 recipeNameTv.setText(detailedRecipe.getTitle());
-                TextView recipeIdTv = (TextView)findViewById(R.id.recipeId);
-                recipeIdTv.setText(detailedRecipe.getId());
+//                TextView recipeIdTv = (TextView)findViewById(R.id.recipeId);
+//                recipeIdTv.setText(detailedRecipe.getId());
                 TextView recipeInstructionTv = (TextView)findViewById(R.id.recipeInstruction);
                 recipeInstructionTv.setText(detailedRecipe.getInstructions());
 
