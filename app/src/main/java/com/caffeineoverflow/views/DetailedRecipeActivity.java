@@ -54,7 +54,6 @@ public class DetailedRecipeActivity extends AppCompatActivity {
 //                Toast.makeText(getApplicationContext(), ingredient.getName(), Toast.LENGTH_LONG).show();
             }
         });
-        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(ingridentListAdapter);
 
         // Call this method when user searches sth
