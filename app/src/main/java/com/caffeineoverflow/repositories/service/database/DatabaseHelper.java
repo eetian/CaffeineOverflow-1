@@ -116,5 +116,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
+    public Cursor getLogDetails(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query("LOG",
+                new String[]{"_id","DATE","COFFEEID","COFFEESIZEID"},
+                null,
+                null,
+                null,null,null);
+        return cursor;
+    }
+
 
 }
